@@ -1,0 +1,4 @@
+name: LimboTitle
+version: '1.0-SNAPSHOT'
+main: com.ycjhub.limboTitle.LimboTitle
+api-version: '1.21'
