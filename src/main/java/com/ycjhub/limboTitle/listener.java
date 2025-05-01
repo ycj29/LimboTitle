@@ -24,7 +24,8 @@ public class listener implements Listener {
                 event.getPlayer().clearTitle();
                 event.getPlayer().sendTitlePart(TitlePart.TITLE, Component.text(ChatColor.RED + (String) plugin.configMap.get("title")));
                 event.getPlayer().sendTitlePart(TitlePart.SUBTITLE, Component.text( (String) plugin.configMap.get("subTitle")));
+                event.getPlayer().sendMessage(ChatColor.RED + (String) plugin.configMap.get("message"));
             }
-        }.runTaskTimer(plugin, 0, 60);
+        }.runTaskTimer(plugin, 0, (int) plugin.configMap.get("interval"));
     }
 }

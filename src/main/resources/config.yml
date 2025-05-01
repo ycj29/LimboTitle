@@ -1,2 +1,4 @@
 title: "Please use 1.21.4 to login"
 subTitle: "Welcome to limbo"
+message: "Hi! Join our discord xxxxxx"
+interval: 60 #ticks (1sec = 20ticks)
