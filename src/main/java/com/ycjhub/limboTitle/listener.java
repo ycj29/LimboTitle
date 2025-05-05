@@ -21,10 +21,14 @@ public class listener implements Listener {
         new LimboRunnable(){
             @Override
             public void run() {
-                event.getPlayer().clearTitle();
-                event.getPlayer().sendTitlePart(TitlePart.TITLE, Component.text(ChatColor.RED + (String) plugin.configMap.get("title")));
-                event.getPlayer().sendTitlePart(TitlePart.SUBTITLE, Component.text( (String) plugin.configMap.get("subTitle")));
-                event.getPlayer().sendMessage(ChatColor.RED + (String) plugin.configMap.get("message"));
+                if (!plugin.configMap.get("subTitle").equals("") && !plugin.configMap.get("title").equals("")) {
+                    event.getPlayer().clearTitle();
+                    event.getPlayer().sendTitlePart(TitlePart.TITLE, Component.text(ChatColor.RED + (String) plugin.configMap.get("title")));
+                    event.getPlayer().sendTitlePart(TitlePart.SUBTITLE, Component.text( (String) plugin.configMap.get("subTitle")));
+                }
+                if (!plugin.configMap.get("message").equals("")) {
+                    event.getPlayer().sendMessage(ChatColor.RED + (String) plugin.configMap.get("message"));
+                }
             }
         }.runTaskTimer(plugin, 0, (int) plugin.configMap.get("interval"));
     }
